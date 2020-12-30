@@ -22,13 +22,23 @@ public class Arrow : MonoBehaviour
     }
     void _Move()
     {
-        body.position = new Vector2(body.position.x + speed * Time.deltaTime, body.position.y);
+        if (gameObject.activeInHierarchy)
+        {
+            body.position = new Vector2(body.position.x + speed * Time.deltaTime, body.position.y);
+        }
     }
     void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.tag == "DestroyArrow")
+        if(col.gameObject.tag == "DestroyArrow" || col.gameObject.tag == "Enemy")
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy")
+        {
+            gameObject.SetActive(false);
         }
     }
 }
