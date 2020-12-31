@@ -33,6 +33,6 @@ public class Enemy : MonoBehaviour
     {
         anim.SetTrigger("Explosion");
         yield return new WaitForSeconds(0.5f);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

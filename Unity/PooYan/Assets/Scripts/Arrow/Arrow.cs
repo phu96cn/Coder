@@ -29,7 +29,7 @@ public class Arrow : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.tag == "DestroyArrow" || col.gameObject.tag == "Enemy")
+        if(col.gameObject.tag == "DestroyArrow")
         {
             gameObject.SetActive(false);
         }

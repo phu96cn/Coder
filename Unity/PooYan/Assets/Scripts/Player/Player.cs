@@ -24,5 +24,9 @@ public class Player : MonoBehaviour
         {
             body.position = new Vector2(body.position.x, body.position.y - speed * Time.deltaTime);
         }
+        else
+        {
+            body.position = new Vector2(body.position.x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
+        }
     }
 }
